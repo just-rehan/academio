@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-background: #F8FAFC;
+  --color-foreground: #0F172A;
+  --color-primary: #1E293B;
+  --color-primary-foreground: #F8FAFC;
+  --color-muted: #F1F5F9;
+  --color-muted-foreground: #64748B;
+  --color-border: #E2E8F0;
+  
+  --shadow-soft: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+  --shadow-hover: 0 4px 12px 0 rgba(15, 23, 42, 0.07);
+  --shadow-cal: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-cal-lg: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 14px;
+}
+
+@import "tw-animate-css";
+
+@theme inline {
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+}
+
+:root {
+  --success: oklch(0.65 0.16 145);
+  --success-foreground: oklch(0.98 0 0);
+  --warning: oklch(0.72 0.14 85);
+  --warning-foreground: oklch(0.15 0 0);
+}
+
+.dark {
+  --success: oklch(0.65 0.18 150);
+  --success-foreground: oklch(0.98 0 0);
+  --warning: oklch(0.80 0.15 90);
+  --warning-foreground: oklch(0.15 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Tabular numbers for all numbers and scores in tables and stats */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .btn-primary {
+    @apply bg-slate-900 text-white px-5 py-2.5 rounded-lg font-semibold text-xs tracking-tight transition-all duration-150 hover:bg-slate-800 active:scale-[0.99] shadow-xs;
+  }
+  .cal-card {
+    @apply bg-white rounded-xl shadow-xs border border-slate-200/90 overflow-hidden;
+  }
+  .cal-badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 text-slate-800 border border-slate-200;
+  }
+  .cal-button-primary {
+    @apply bg-slate-900 text-white px-4 py-2 rounded-lg text-xs font-semibold hover:bg-slate-800 transition-colors shadow-xs;
+  }
+  .cal-button-secondary {
+    @apply bg-white text-slate-800 border border-slate-200 px-4 py-2 rounded-lg text-xs font-semibold hover:bg-slate-50 transition-colors shadow-xs;
+  }
+}
